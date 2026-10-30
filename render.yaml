@@ -1,0 +1,30 @@
+# A persistent disk requires a paid Render service. No service is provisioned by this file alone.
+services:
+  - type: web
+    name: setutrace-demo
+    runtime: node
+    plan: starter
+    branch: main
+    buildCommand: npm ci --include=dev && npm run build
+    startCommand: npm start
+    healthCheckPath: /api/health
+    numInstances: 1
+    disk:
+      name: setutrace-data
+      mountPath: /var/data/setutrace
+      sizeGB: 1
+    envVars:
+      - key: NODE_VERSION
+        value: 24.19.0
+      - key: NODE_ENV
+        value: production
+      - key: HOSTED_DEMO
+        value: 'true'
+      - key: HOST
+        value: 0.0.0.0
+      - key: DATA_DIR
+        value: /var/data/setutrace
+      - key: DEMO_ACCESS_CODE
+        generateValue: true
+      - key: APP_ORIGINS
+        sync: false
