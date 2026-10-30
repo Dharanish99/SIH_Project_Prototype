@@ -1,6 +1,6 @@
 # Initial prototype validation (historical baseline)
 
-28 October 2026, Asia/Kolkata. This record describes a local synthetic prototype, separate from the earlier research-only model.
+30 October 2026, Asia/Kolkata. This record describes a local synthetic prototype in the standalone `SIH_Project_Prototype` repository.
 
 ## Build and API
 
